@@ -5,21 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Gif Homework</title>
+    
+    <!-- CSS LINK -->
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
     <span id = "buttonUpload"></span>
+    <br>
     <!-- INPUT TEXT FIELD -->
     <form>
-        <span id="input-name">
-          Add an Animal: <input id="animal-name" type="text">
-          <input id="save-name" value="Save" type="submit">
+        <label for="animal-input"> Add an Animal:</label>
+          <input id="animal-input" type="text">
+          <!-- BUTTON TO SUBMIT THE INPUT FIELD -->
+          <input id="save-input" value="Save" type="submit">
         </span>
       </form>
-  
+  <br>
       <!-- prints the gif to to html page -->
-      <span id="animal-gif"></span>
+      <div id="animal-gif"></div>
   
       <!-- jQuery -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="assets/gif.js"></script>
 </body>
 </html>
