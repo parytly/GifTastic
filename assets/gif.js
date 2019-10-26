@@ -1,8 +1,4 @@
 
-//    GIPHY HTTPS LINK:
-   // https://api.giphy.com/v1/gifs/search?api_key=XkIzMsg4ouxg5wPkAxLSXrbHZHZZVWD2&q=&limit=25&offset=0&rating=G&lang=en
-
-
    var gifCount = 0;
 
 //   SAVES THE INPUT UPON CLICKING THE SAVE BUTTON
@@ -10,9 +6,10 @@ $("#save-input").on("click", function(event){
     event.preventDefault();
 
     var search = $("#gif-input").val();
+    var rating = $("#gif-ratings").val();
 
     var giphyApiKey = "XkIzMsg4ouxg5wPkAxLSXrbHZHZZVWD2";
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=" + giphyApiKey + "&limit=15&rating=PG-13&PG-13"; 
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=" + giphyApiKey + "&limit=15&rating=" + rating; 
     console.log(queryURL);
     console.log(search);
 
@@ -42,7 +39,10 @@ $("#save-input").on("click", function(event){
         // LOOPS THE AVALIABLE GIFS 
         var gifCounter = 0;
         for (var i = 0; i < response.data.length; i++){
-            var gifImage = $("<button id = gifClick-" + gifCounter++ +  "> <img width =200 height = 200 src=" + response.data[i].images.fixed_height_still.url+ "> </button>");
+            var gifImage = $("<button id = gifClick-" + gifCounter++ +  "> <img width =200 height = 200 src=" + response.data[i].images.fixed_height.url + "> </button>");
+            // still image of gifs
+            // response.data[i].images.fixed_height_still.url
+
             $(divforGif).append(gifImage)
             console.log("heyy")
 
