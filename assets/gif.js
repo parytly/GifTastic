@@ -10,7 +10,6 @@ $("#save-input").on("click", function(event){
 
     var giphyApiKey = "XkIzMsg4ouxg5wPkAxLSXrbHZHZZVWD2";
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=" + giphyApiKey + "&limit=15&rating=" + rating; 
-    console.log(queryURL);
     console.log(search);
 
     //  CREATING A BUTTON TO DOM
@@ -23,41 +22,50 @@ $("#save-input").on("click", function(event){
         url: queryURL,
         method: "GET"
         }).then(function(response){
-            console.log(response);
-
         // CLICKING THE CREATED BUTTON RENDERS THE GIF TO THE PAGE
         $(savedButton).on("click", function(){
-
-            // CREATING <DIV> TO STORE THE GIF IMGS IN A CONTAINER
-        var divforGif = $("<div>");
-        divforGif.attr("id", "gif-container");
-
+            console.log(response)
         // ALLOWS THE GIFS TO BE REPLACE WHEN CLICKING ON NEW BUTTON
-        $("#image-gif").empty();
-        $("#image-gif").append(divforGif);  
+        $("#image-gif").empty(); 
 
         // LOOPS THE AVALIABLE GIFS 
-        var gifCounter = 0;
         for (var i = 0; i < response.data.length; i++){
-            var gifImage = $("<button id = gifClick-" + gifCounter++ +  "> <img width =200 height = 200 src=" + response.data[i].images.fixed_height.url + "> </button>");
             // still image of gifs
-            // response.data[i].images.fixed_height_still.url
-
-            $(divforGif).append(gifImage)
-            console.log("heyy")
-
-            var gifRunning = $("<button id = gifClick-" + gifCounter + "> <img width =200 height = 200 src=" + response.data[i].images.fixed_height.url+ "> </button>");
+            var still = response.data[i].images.fixed_height_still.url
+            // running gif
+            var running = response.data[i].images.fixed_height.url
+            //Rating of the gif
+            // var rating = response.data[i].rating;
             
-            // CLICKING ON GIF RUNS IT
-            $(gifImage).on("click", function(){
-                // var gifIdNumber = $(this).attr(gifCounter)
-                $("#gifClick-" + gifCounter ).replaceWith(gifRunning);
-                console.log("yoyoyo");
-            });
+            var gifImage = $("<img  width =200 height = 200>");
+            // var ratingText = $("<span>");
+            // $("#image-gif").append(ratingText);
+            // ATTRIBUTE AND CLASS FOR EACH GIF IMAGE
+            gifImage.attr("src", still);
+            gifImage.attr("data-still", still);
+            gifImage.attr("data-running", running);
+            gifImage.attr("data-state", "still");
+            gifImage.addClass('playImage');
+           
+
+            // APPENDS THE GIF ONTO THE WEBPAGE
+            $("#image-gif").append(gifImage);
         };
         });
-
     });
 });
+// CLICKING ON THE GIFS TO PLAY/ STOP
+$(document).on("click", ".playImage", function() {
 
+    var play = $(this).attr('data-state');
+    if(play === 'still'){
+        $(this).attr('src', $(this).data("running"));
+        $(this).attr('data-state', "running");
+    }else{
+        $(this).attr('src', $(this).data("still"));
+        $(this).attr('data-state', "still");
+    }
+    console.log('play')
+  });
 
+            

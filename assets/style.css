@@ -6,5 +6,8 @@
     border-radius: 12px;
     border: solid;
     border-color: black;
+}
 
+.gifButton{
+    border: solid;
 }
