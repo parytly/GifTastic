@@ -37,7 +37,7 @@ $("#save-input").on("click", function(event){
             //Rating of the gif
             // var rating = response.data[i].rating;
             
-            var gifImage = $("<img  width =200 height = 200>");
+            var gifImage = $("<img  width =300 height = 200>");
             // var ratingText = $("<span>");
             // $("#image-gif").append(ratingText);
             // ATTRIBUTE AND CLASS FOR EACH GIF IMAGE

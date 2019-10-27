@@ -1,13 +1,60 @@
+body{
+    background-color: #393f4d;
+}
+.jumbotron{
+    background-color:#393f4d;
+}
+h1{
+    font-family: 'Modak', cursive;
+    font-size: 100px !important;
+    text-align: center;
+}
+.card-body{
+    background-color: #d4d4dc;
+    border-style: inset;
+    border-color: goldenrod;
+
+}
+.container{
+background-color: #d4d4dc;
+   padding: 10px;
+   border: solid 8px goldenrod;
+   border-radius: 6px;
+}
+p, label{
+    font-family: 'Gloria Hallelujah', cursive;
+    text-align: center;
+}
+.row{
+    margin: 5px;
+}
+
 .renderButton{
-    color: white;
-    background-color: rgb(74, 117, 9);
+    color: #393f4d;
+    background-color: goldenrod;
     padding:5px 10px;
     margin: 5px;
     border-radius: 12px;
-    border: solid;
-    border-color: black;
+    border: solid 2px;
+    border-color: #393f4d;
+    font-family: 'Gloria Hallelujah', cursive;
 }
-
-.gifButton{
-    border: solid;
+#save-input{
+    color: #393f4d;
+    background-color: #feda6a;
+    padding:5px 10px;
+    margin: 5px;
+    border-radius: 12px;
+    border: solid 2px;
+    border-color: #393f4d;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+.playImage{
+    margin: 10px;
+    border:solid 5px;
+    border-color: #393f4d;
+    border-radius: 6px;
+}
+body{
+    background-color: #393f4d;
 }
